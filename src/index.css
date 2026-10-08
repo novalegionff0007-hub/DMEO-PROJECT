@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    font-family: 'Hind Siliguri', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Dark Mode */
+  html.dark {
+    color-scheme: dark;
+    background-color: #0B0F17;
+    color: #F1F5F9;
+  }
+
+  /* Rich Soothing Creamy Light Mode */
+  html.light {
+    color-scheme: light;
+    background-color: #F6F2E9;
+    color: #292524;
+  }
+
+  body {
+    font-family: 'Hind Siliguri', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
+/* Dark Mode Graph Grid */
+.dark .graph-bg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Creamy Light Mode Graph Grid (Warm & Soothing) */
+.light .graph-bg {
+  background-image: 
+    linear-gradient(to right, rgba(160, 138, 112, 0.13) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 138, 112, 0.13) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+/* Flowing Marquee Announcement (Right to Left) */
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-flow {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-rtl 24s linear infinite;
+}
+
+.animate-marquee-flow:hover {
+  animation-play-state: paused;
+}
